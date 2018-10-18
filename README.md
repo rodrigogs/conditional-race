@@ -52,5 +52,5 @@ const returnedCar = await conditionalRace([
   run(cars.car3),
 ], car => car.color === 'blue');
 
-console.log(car.number) // 3
+console.log(returnedCar.number) // 3
 ```
