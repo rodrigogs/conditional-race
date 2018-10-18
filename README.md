@@ -1,6 +1,20 @@
 # conditional-race
 
-Promise conditional race.
+[![Build Status](https://travis-ci.org/rodrigogs/conditional-race.svg?branch=master)](https://travis-ci.org/rodrigogs/conditional-race)
+[![Maintainability](https://api.codeclimate.com/v1/badges/daa916d68e2291a6352a/maintainability)](https://codeclimate.com/github/rodrigogs/conditional-race/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/daa916d68e2291a6352a/test_coverage)](https://codeclimate.com/github/rodrigogs/conditional-race/test_coverage)
+
+The conditionalRace function returns a `Promise` that is
+settled the same way (and takes the same value) as the
+first promise that settles and fulfills the passed condition function
+amongst the promises of the iterable passed as argument.
+If the iterable passed is empty, the promise returned will be forever pending.
+
+If the iterable contains one or more non-promise value
+and/or an already resolved/rejected promise,
+then `conditionalRace` will resolve to the first of these values found in the iterable.
+
+If no promise fulfills the conditional function, `null` is returned.
 
 ## Install
 ```bash
@@ -40,7 +54,3 @@ const returnedCar = await conditionalRace([
 
 console.log(car.number) // 3
 ```
-
-[![Build Status](https://travis-ci.org/rodrigogs/conditional-race.svg?branch=master)](https://travis-ci.org/rodrigogs/conditional-race)
-[![Maintainability](https://api.codeclimate.com/v1/badges/daa916d68e2291a6352a/maintainability)](https://codeclimate.com/github/rodrigogs/conditional-race/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/daa916d68e2291a6352a/test_coverage)](https://codeclimate.com/github/rodrigogs/conditional-race/test_coverage)
