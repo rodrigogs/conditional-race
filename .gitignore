@@ -1,6 +1,6 @@
-/package-lock.json
 /.idea/
 /node_modules/
+/coverage
 *.iml
-/.env
-coverage
+.env
+package-lock.json
